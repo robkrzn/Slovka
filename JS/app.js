@@ -1,6 +1,10 @@
 //Data
-let word ='';
 const maxWordLenght = 5;
+const countOfTries = 6;
+
+let word ='';
+let solution = 'slovo';
+let tries = 1;
 
 //keyboard
 document.addEventListener('keydown', (event)=>{
@@ -21,6 +25,11 @@ const submitWord = () => {
 
     //animeRowShake(currentRow());
     animateTileReveal(currentRow());
+
+    
+    setTimeout(() => {
+        judgeResult();
+    },1500)
 }
 
 //add letters
@@ -59,5 +68,18 @@ const currentTile = () => {
 
 //curentRow
 const currentRow = () => {
-    return document.querySelector('.row');
+    return document.querySelector('.row:nth-child('+tries+')');
+}
+
+const judgeResult = () => {
+    if(word == solution){
+        animateTileDance(currentRow());
+    }
+    else if(tries >= countOfTries){
+        youVeryMuchLose();
+    }
+    else{
+        word='';
+        tries++;
+    }
 }
