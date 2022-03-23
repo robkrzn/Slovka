@@ -3,7 +3,7 @@ const maxWordLenght = 5;
 const countOfTries = 6;
 
 let word ='';
-let solution = 'slovo';
+let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
 let tries = 1;
 
 //keyboard
@@ -22,6 +22,12 @@ document.addEventListener('keydown', (event)=>{
 //submit
 const submitWord = () => {
     if( word.length != maxWordLenght) return;
+
+    //is this a real world?
+    if(!allWords.includes(word)){
+        animeRowShake(currentRow());
+        return ;
+    }
 
     //animeRowShake(currentRow());
     animateTileReveal(currentRow());
