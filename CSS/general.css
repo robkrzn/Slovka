@@ -1,0 +1,16 @@
+html,body{
+    height: 100vh;  /*100 % vysky mojho prehliadaca */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+body{
+    color: #f3f7eb;
+    background: #071409;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

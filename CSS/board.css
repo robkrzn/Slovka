@@ -1,0 +1,34 @@
+.row{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /*stlpce maju rovnaku sirku a rozdelia sa na cele okno*/
+    gap: 5px;
+}
+.tile{
+    font-size: 2rem; /*dvojnasobne vacsi ako normal*/
+    font-weight: 900;
+    text-transform: uppercase;
+    border: 2px solid #263725;
+    background: #071409;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+}
+
+.is-filled{
+    border-color: #1e461b;
+}
+
+.present{
+    border-color: #e58727;
+    background-color: #e58727;
+}
+
+.correct{
+    border-color: #2e6b29;
+    background-color: #2e6b29;
+}
+
+.wrong{
+    border-color: #223121;
+    background-color: #223121;
+}
