@@ -34,6 +34,8 @@ const animateTileReveal = (row) => {
 //dance when you win
 const animateTileDance = (row) => {
     row.querySelectorAll('.tile').forEach((tile,index) => {
+        tile.innerHTML = solution.charAt(index);
+
         tile.classList.remove('animate__bounceIn', 'animate__flipInY', 'animate__bounce');
 
         setTimeout(()=>{
@@ -65,22 +67,33 @@ const highlightLetters = (row) => {
     row.querySelectorAll('.tile').forEach((tile,index) => {
         tile.style.visibility = 'hidden';
         
-        let letter = word.charAt(index);
+        let letter = noAccents(word.charAt(index));
         let colorClass = 'wrong';
 
         //ak psimena su aj spravne aj obsahuje zobraz len spravne
         //zobraz len jedno zlte pismeno
-        if(solution.includes(letter)){
+        if(noAccentSolution.includes(letter)){
             if(!lettersInRow.correct.includes(letter) && !pressentLetters.includes(letter)){
                 colorClass='present';
                 pressentLetters.push(letter);
             }
         }
 
-        if(solution.charAt(index)==letter){
+        if(noAccentSolution.charAt(index)==letter){
             colorClass = 'correct';
         }
 
         tile.classList.add(colorClass);
     });
+
+    // keyboard row in footer
+	document.querySelectorAll('.keyboard .tile').forEach(tile => {
+		let colorClass = ''
+
+		if (lettersInRow.wrong.includes(tile.id)) colorClass = 'wrong'
+		if (lettersInRow.present.includes(tile.id)) colorClass = 'present'
+		if (lettersInRow.correct.includes(tile.id)) colorClass = 'correct'
+
+		if (colorClass) tile.classList.add(colorClass)
+	})
 }

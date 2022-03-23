@@ -3,9 +3,11 @@ const maxWordLenght = 5;
 const countOfTries = 6;
 
 let word ='';
-let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
 let tries = 1;
 
+let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
+let noAccentSolution = noAccents(solution);
+let noAccentWords = allWords.map(x => noAccents(x));
 
 let lettersInRow = {
 	correct: [],
@@ -32,13 +34,13 @@ const submitWord = () => {
 
     
     //is this a real world?
-    if(!allWords.includes(word)){
+    if(!noAccentWords.includes(noAccents(word))){
         animeRowShake(currentRow());
         return ;
     }
 
     findLettersInRow();
-    console.dir(lettersInRow);
+    //console.dir(lettersInRow);
 
     highlightLetters(currentRow());
     animateTileReveal(currentRow());
@@ -62,7 +64,7 @@ const addLetter = (character) => {
         
     }
 
-    console.log(word);
+    //console.log(word);
 }
 
 const removeLetter = () => {
@@ -73,7 +75,7 @@ const removeLetter = () => {
     tile.className = 'tile';
 
     word = word.slice(0 , -1);
-    console.log(word);
+    //console.log(word);
 }
 
 //tile to update
@@ -87,7 +89,7 @@ const currentRow = () => {
 }
 
 const judgeResult = () => {
-    if(word == solution){
+    if(noAccents(word) == noAccentSolution){
         animateTileDance(currentRow());
     }
     else if(tries >= countOfTries){
@@ -106,14 +108,14 @@ const findLettersInRow = () => {
 	let wrong = [];
 
 	[...word].forEach((letter, index) => {
-		//letter = noAccents(letter)
+		letter = noAccents(letter)
 
 		// letter in correct place
-		if (solution.charAt(index) === letter) {
+		if (noAccentSolution.charAt(index) === letter) {
 			correct.push(letter)
 		}
 		// letter in wrong place
-		else if (solution.includes(letter)) {
+		else if (noAccentSolution.includes(letter)) {
 			present.push(letter)
 		}
 		// wrong number
@@ -127,4 +129,9 @@ const findLettersInRow = () => {
 		correct,
 		wrong
 	}
+}
+
+// REMOVE ACCENTS
+function noAccents (str) {
+	return str.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 }

@@ -41,5 +41,15 @@
 
 .correctAnswer{
     position: fixed;
+    margin-top: 15rem;
     font-size: 60px;
+}
+
+/* RESPONSIVE */
+@media only screen and ((max-width: 600px) or (max-height: 600px)) {
+	.tile {
+		width: 3rem;
+		height: 3rem;
+		line-height: 3rem;
+	}
 }
