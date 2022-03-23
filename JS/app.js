@@ -6,6 +6,13 @@ let word ='';
 let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
 let tries = 1;
 
+
+let lettersInRow = {
+	correct: [],
+	present: [],
+	wrong: []
+}
+
 //keyboard
 document.addEventListener('keydown', (event)=>{
     if(event.key == 'Enter'){
@@ -23,16 +30,18 @@ document.addEventListener('keydown', (event)=>{
 const submitWord = () => {
     if( word.length != maxWordLenght) return;
 
+    
     //is this a real world?
     if(!allWords.includes(word)){
         animeRowShake(currentRow());
         return ;
     }
 
-    //animeRowShake(currentRow());
-    animateTileReveal(currentRow());
+    findLettersInRow();
+    console.dir(lettersInRow);
 
-    
+    highlightLetters(currentRow());
+    animateTileReveal(currentRow());
     setTimeout(() => {
         judgeResult();
     },1500)
@@ -88,4 +97,34 @@ const judgeResult = () => {
         word='';
         tries++;
     }
+}
+
+// FIND ALL LETTERS FOR CURRENT ROW
+const findLettersInRow = () => {
+	let present = [];
+	let correct = [];
+	let wrong = [];
+
+	[...word].forEach((letter, index) => {
+		//letter = noAccents(letter)
+
+		// letter in correct place
+		if (solution.charAt(index) === letter) {
+			correct.push(letter)
+		}
+		// letter in wrong place
+		else if (solution.includes(letter)) {
+			present.push(letter)
+		}
+		// wrong number
+		else {
+			wrong.push(letter)
+		}
+	})
+
+	lettersInRow = {
+		present,
+		correct,
+		wrong
+	}
 }

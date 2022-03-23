@@ -14,22 +14,9 @@ const animeRowShake = (row) => {
 //rotate tile, when you submit an existing word
 const animateTileReveal = (row) => {
     row.querySelectorAll('.tile').forEach((tile,index) => {
-        let tileLetter = word.charAt(index);
-        let colorClass = 'wrong';
-
-        if(solution.includes(tileLetter)){
-            colorClass='present';
-        }
-
-        if(solution.charAt(index)==tileLetter){
-            colorClass = 'correct';
-        }
-
-        tile.classList.add(colorClass);
-
         tile.classList.remove('animate__bounceIn', 'animate__flipInY');
-
         setTimeout(()=>{
+            tile.style.visibility = 'visible';
             tile.classList.add('animate__flipInY', `animate__delay-${index}s`);
         },0);
 
@@ -69,4 +56,31 @@ const youVeryMuchLose = () => {
 //correct answer 
 const animateWordBackIn = (word) => {
     word.classList.add('animate__animated', 'animate__backInUp');
+}
+
+//highligh letter
+const highlightLetters = (row) => {
+    let pressentLetters =[];
+
+    row.querySelectorAll('.tile').forEach((tile,index) => {
+        tile.style.visibility = 'hidden';
+        
+        let letter = word.charAt(index);
+        let colorClass = 'wrong';
+
+        //ak psimena su aj spravne aj obsahuje zobraz len spravne
+        //zobraz len jedno zlte pismeno
+        if(solution.includes(letter)){
+            if(!lettersInRow.correct.includes(letter) && !pressentLetters.includes(letter)){
+                colorClass='present';
+                pressentLetters.push(letter);
+            }
+        }
+
+        if(solution.charAt(index)==letter){
+            colorClass = 'correct';
+        }
+
+        tile.classList.add(colorClass);
+    });
 }
