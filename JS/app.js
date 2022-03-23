@@ -19,7 +19,8 @@ document.addEventListener('keydown', (event)=>{
 const submitWord = () => {
     if( word.length != maxWordLenght) return;
 
-    alert(word)
+    //animeRowShake(currentRow());
+    animateTileReveal(currentRow());
 }
 
 //add letters
@@ -33,6 +34,8 @@ const addLetter = (character) => {
 
         let tile = currentTile();
         tile.innerHTML = character;
+        animateTileBounce(tile);
+        
     }
 
     console.log(word);
@@ -43,6 +46,8 @@ const removeLetter = () => {
 
     let tile = currentTile();
     tile.innerHTML = '';
+    tile.className = 'tile';
+
     word = word.slice(0 , -1);
     console.log(word);
 }
