@@ -135,3 +135,27 @@ const findLettersInRow = () => {
 function noAccents (str) {
 	return str.normalize("NFD").replace(/\p{Diacritic}/gu, "");
 }
+
+// MOBILE
+const keyboard = document.querySelector('.keyboard')
+keyboard.addEventListener('click', (event) => {
+    // clicked on button?
+    if (event.target.nodeName !== 'BUTTON') return
+
+    let character = event.target.id
+
+    /*
+    if (gameEnded && character === 'again') {
+        window.location.reload()
+    }
+    */
+    if (character === '↵') {
+        submitWord()
+    }
+    else if (character === '←') {
+        removeLetter()
+    }
+    else {
+        addLetter(character)
+    }
+})
