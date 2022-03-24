@@ -1,26 +1,26 @@
 //bounce when you add new letter
 const animateTileBounce = (tile) => {
-    tile.classList.add('is-filled', 'animate__animated', 'animate__bounceIn');
-}
+  tile.classList.add("is-filled", "animate__animated", "animate__bounceIn");
+};
 
 //shake whole row, when you submit a not-existant word
 const animeRowShake = (row) => {
-    row.classList.remove('animate__shakeX');
-    setTimeout(()=>{
-        row.classList.add('animate__animated', 'animate__shakeX'); 
-    },0)
-}
+  row.classList.remove("animate__shakeX");
+  setTimeout(() => {
+    row.classList.add("animate__animated", "animate__shakeX");
+  }, 0);
+};
 
 //rotate tile, when you submit an existing word
 const animateTileReveal = (row) => {
-    row.querySelectorAll('.tile').forEach((tile,index) => {
-        tile.classList.remove('animate__bounceIn', 'animate__flipInY');
-        setTimeout(()=>{
-            tile.style.visibility = 'visible';
-            tile.classList.add('animate__flipInY', `animate__delay-${index}s`);
-        },0);
+  row.querySelectorAll(".tile").forEach((tile, index) => {
+    tile.classList.remove("animate__bounceIn", "animate__flipInY");
+    setTimeout(() => {
+      tile.style.visibility = "visible";
+      tile.classList.add("animate__flipInY", `animate__delay-${index}s`);
+    }, 0);
 
-        /*
+    /*
         if(index==maxWordLenght-1){
             tile.addEventListener('animationend', () => {
                 judgeResult();
@@ -28,21 +28,25 @@ const animateTileReveal = (row) => {
             });
         }
         */
-    });
-}
+  });
+};
 
 //dance when you win
 const animateTileDance = (row) => {
-    row.querySelectorAll('.tile').forEach((tile,index) => {
-        tile.innerHTML = solution.charAt(index);
+  row.querySelectorAll(".tile").forEach((tile, index) => {
+    tile.innerHTML = solution.charAt(index);
 
-        tile.classList.remove('animate__bounceIn', 'animate__flipInY', 'animate__bounce');
+    tile.classList.remove(
+      "animate__bounceIn",
+      "animate__flipInY",
+      "animate__bounce"
+    );
 
-        setTimeout(()=>{
-            tile.classList.add('animate__bounce', `animate__delay-${index}s`);
-        },0);
-    });
-}
+    setTimeout(() => {
+      tile.classList.add("animate__bounce", `animate__delay-${index}s`);
+    }, 0);
+  });
+};
 
 //game over
 const youVeryMuchLose = () => {
@@ -74,45 +78,48 @@ const replayButtonBackIn = () => {
 
 }
 
-//correct answer 
+//correct answer
 const animateWordBackIn = (word) => {
-    word.classList.add('animate__animated', 'animate__backInUp');
-}
+  word.classList.add("animate__animated", "animate__backInUp");
+};
 
 //highligh letter
 const highlightLetters = (row) => {
-    let pressentLetters =[];
+  let pressentLetters = [];
 
-    row.querySelectorAll('.tile').forEach((tile,index) => {
-        tile.style.visibility = 'hidden';
-        
-        let letter = noAccents(word.charAt(index));
-        let colorClass = 'wrong';
+  row.querySelectorAll(".tile").forEach((tile, index) => {
+    tile.style.visibility = "hidden";
 
-        //ak psimena su aj spravne aj obsahuje zobraz len spravne
-        //zobraz len jedno zlte pismeno
-        if(noAccentSolution.includes(letter)){
-            if(!lettersInRow.correct.includes(letter) && !pressentLetters.includes(letter)){
-                colorClass='present';
-                pressentLetters.push(letter);
-            }
-        }
+    let letter = noAccents(word.charAt(index));
+    let colorClass = "wrong";
 
-        if(noAccentSolution.charAt(index)==letter){
-            colorClass = 'correct';
-        }
+    //ak psimena su aj spravne aj obsahuje zobraz len spravne
+    //zobraz len jedno zlte pismeno
+    if (noAccentSolution.includes(letter)) {
+      if (
+        !lettersInRow.correct.includes(letter) &&
+        !pressentLetters.includes(letter)
+      ) {
+        colorClass = "present";
+        pressentLetters.push(letter);
+      }
+    }
 
-        tile.classList.add(colorClass);
-    });
+    if (noAccentSolution.charAt(index) == letter) {
+      colorClass = "correct";
+    }
 
-    // keyboard row in footer
-	document.querySelectorAll('.keyboard .tile').forEach(tile => {
-		let colorClass = ''
+    tile.classList.add(colorClass);
+  });
 
-		if (lettersInRow.wrong.includes(tile.id)) colorClass = 'wrong'
-		if (lettersInRow.present.includes(tile.id)) colorClass = 'present'
-		if (lettersInRow.correct.includes(tile.id)) colorClass = 'correct'
+  // keyboard row in footer
+  document.querySelectorAll(".keyboard .tile").forEach((tile) => {
+    let colorClass = "";
 
-		if (colorClass) tile.classList.add(colorClass)
-	})
-}
+    if (lettersInRow.wrong.includes(tile.id)) colorClass = "wrong";
+    if (lettersInRow.present.includes(tile.id)) colorClass = "present";
+    if (lettersInRow.correct.includes(tile.id)) colorClass = "correct";
+
+    if (colorClass) tile.classList.add(colorClass);
+  });
+};

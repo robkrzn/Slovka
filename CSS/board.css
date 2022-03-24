@@ -1,55 +1,58 @@
-.board{
-    display: grid;
-    grid-template-rows: repeat(6, 1fr);
-    gap: 5px;
+.board {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 5px;
 }
 
-.row{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /*stlpce maju rovnaku sirku a rozdelia sa na cele okno*/
-    gap: 5px;
+.row {
+  display: grid;
+  grid-template-columns: repeat(
+    5,
+    1fr
+  ); /*stlpce maju rovnaku sirku a rozdelia sa na cele okno*/
+  gap: 5px;
 }
-.tile{
-    font-size: 2rem; /*dvojnasobne vacsi ako normal*/
-    font-weight: 900;
-    text-transform: uppercase;
-    border: 2px solid #263725;
-    background: #071409;
-    width: 4rem;
-    height: 4rem;
-    line-height: 4rem;
-}
-
-.is-filled{
-    border-color: #1e461b;
-}
-
-.present{
-    border-color: #e58727;
-    background-color: #e58727;
+.tile {
+  font-size: 2rem; /*dvojnasobne vacsi ako normal*/
+  font-weight: 900;
+  text-transform: uppercase;
+  border: 2px solid #263725;
+  background: #071409;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
 }
 
-.correct{
-    border-color: #2e6b29;
-    background-color: #2e6b29;
+.is-filled {
+  border-color: #1e461b;
 }
 
-.wrong{
-    border-color: #223121;
-    background-color: #223121;
+.present {
+  border-color: #e58727;
+  background-color: #e58727;
 }
 
-.correctAnswer{
-    position: fixed;
-    margin-top: 15rem;
-    font-size: 60px;
+.correct {
+  border-color: #2e6b29;
+  background-color: #2e6b29;
+}
+
+.wrong {
+  border-color: #223121;
+  background-color: #223121;
+}
+
+.correctAnswer {
+  position: fixed;
+  margin-top: 15rem;
+  font-size: 60px;
 }
 
 /* RESPONSIVE */
 @media only screen and ((max-width: 600px) or (max-height: 600px)) {
-	.tile {
-		width: 3rem;
-		height: 3rem;
-		line-height: 3rem;
-	}
+  .tile {
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+  }
 }
