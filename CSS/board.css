@@ -48,6 +48,7 @@
   font-size: 60px;
 }
 
+
 /* RESPONSIVE */
 @media only screen and ((max-width: 600px) or (max-height: 600px)) {
   .tile {
