@@ -50,10 +50,31 @@
 
 
 /* RESPONSIVE */
-@media only screen and ((max-width: 600px) or (max-height: 600px)) {
-  .tile {
-    width: 3rem;
-    height: 3rem;
-    line-height: 3rem;
-  }
+
+@media only screen and (min-width: 600px) {
+	.board .tile {
+		width: 3.5rem;
+		height: 3.5rem;
+	}
+}
+
+@media only screen and (min-width: 720px) {
+	.board .tile {
+		width: 4rem;
+		height: 4rem;
+	}
+}
+
+@media only screen and (max-height: 660px) {
+	.board .tile {
+		width: 3rem;
+		height: 3rem;
+	}
+}
+
+@media only screen and (max-height: 560px) {
+	.board .tile {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
 }
