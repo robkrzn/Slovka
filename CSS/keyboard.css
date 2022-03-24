@@ -50,7 +50,7 @@
 	color:  white;
 	font-weight: 900;
 	font-size: 1.15rem;
-    justify-content: center;
+  justify-content: center;
 
   border-width: 2px;
   border-radius: 2px;
@@ -107,7 +107,7 @@
 /* KEYBOARD RESPONSIVE */
 @media only screen and (min-width: 600px) and (min-height: 700px) {
 
-	.keyboard .row {
+	.keyboard .row  {
         margin-bottom: 2px;
         gap: 2px;
     }
@@ -115,9 +115,15 @@
     .keyboard .tile {
 		font-size: 1.5rem;
 		width: 2.75rem;
-    	height: 3.75rem;
-	}
+    height: 3.75rem;
+    justify-content: center;
 
+	}
+  .replayButton{
+    font-size: 1.5rem;
+		width: 2.75rem;
+    height: 3.75rem;
+  }
     .keyboard .double {
         width: 6rem;
     }
@@ -128,6 +134,7 @@
 
     .keyboard .enter {
         font-size: 1rem;
+        width: 0.5rem;
     }
 
 }
