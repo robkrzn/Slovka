@@ -34,6 +34,9 @@ header h1{
     margin: 0;
 }
 
+button{
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Open Sans", sans-serif;
+}
 
 
 /* RESPONSIVE */

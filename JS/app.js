@@ -3,7 +3,7 @@ const maxWordLenght = 5;
 const countOfTries = 6;
 
 let word ='';
-let tries = 1;
+let tries = 6;
 
 let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
 let noAccentSolution = noAccents(solution);

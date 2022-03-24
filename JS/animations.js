@@ -53,6 +53,21 @@ const youVeryMuchLose = () => {
         correctWord.textContent= solution.toUpperCase();
         animateWordBackIn(correctWord);
     },2000)
+    setTimeout(()=>{
+        keyboardEnd();
+    },3000);
+}
+
+//game over keyboard
+const keyboardEnd = () => {
+    let keyboard = document.querySelector('.keyboard');
+    keyboard.classList.add('animate__animated', 'animate__backOutDown');
+}
+
+//replay button back in
+const replayButtonBackIn = () => {
+    let replayButton = document.querySelector('.replayButton');
+    
 }
 
 //correct answer 
