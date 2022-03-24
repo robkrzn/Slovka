@@ -3,7 +3,8 @@ const maxWordLenght = 5;
 const countOfTries = 6;
 
 let word ='';
-let tries = 6;
+let tries = 1;
+
 
 let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
 let noAccentSolution = noAccents(solution);
@@ -91,9 +92,13 @@ const currentRow = () => {
 const judgeResult = () => {
     if(noAccents(word) == noAccentSolution){
         animateTileDance(currentRow());
+        keyboardEnd();
+        replayButtonBackIn();
     }
     else if(tries >= countOfTries){
         youVeryMuchLose();
+        keyboardEnd();
+        replayButtonBackIn();
     }
     else{
         word='';
@@ -144,11 +149,10 @@ keyboard.addEventListener('click', (event) => {
 
     let character = event.target.id
 
-    /*
-    if (gameEnded && character === 'again') {
-        window.location.reload()
+    if(event.target.className=="replayButton"){
+        window.location.reload();
     }
-    */
+    
     if (character === '↵') {
         submitWord()
     }
@@ -159,3 +163,15 @@ keyboard.addEventListener('click', (event) => {
         addLetter(character)
     }
 })
+
+
+//replay
+const replay = document.querySelector('.replay')
+replay.addEventListener('click', (event) => {
+    // clicked on button?
+    if (event.target.nodeName !== 'BUTTON') return
+    
+    if(event.target.id=="rep"){
+        window.location.reload();
+    }
+});

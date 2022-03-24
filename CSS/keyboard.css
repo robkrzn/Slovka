@@ -1,8 +1,8 @@
 .keyboard .row,
-.keyboard .winner {
+.replay {
 	display: flex;
 	justify-content: center;
-	gap: 1px;
+	gap: 2px;
 	margin-bottom: 5px;
     margin-left: 5px;
     margin-right: 5px;
@@ -15,13 +15,33 @@
 	-webkit-user-select: none;
 }
 
-.keyboard .winner {
-	display: none;
+.replay {
+	
 	position: fixed;
-	bottom: 1.5rem;
+	bottom: 7.5rem;
 	z-index: 10;
 	left: 50%;
 	transform: translateX(-50%);
+}
+
+.replayButton{
+	visibility: hidden;
+    font-size: 40px;
+    font-weight: 900;
+    color:  white;
+
+
+    border: 2px solid #263725;
+    border-radius: 6px;
+	
+    background-color: #071409;
+    justify-content: center;
+    width: 20rem;
+    height: 5rem;
+    
+    margin-bottom: 30rem;
+    position: absolute;
+    touch-action: manipulation;
 }
 
 .keyboard .tile {
@@ -80,8 +100,3 @@
 .keyboard .enter {
     font-size: 2rem;
 }
-/*
-.keyboard{
-	visibility:hidden;
-}
-*/

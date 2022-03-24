@@ -52,22 +52,26 @@ const youVeryMuchLose = () => {
         let correctWord = document.querySelector(".correctAnswer");
         correctWord.textContent= solution.toUpperCase();
         animateWordBackIn(correctWord);
-    },2000)
-    setTimeout(()=>{
-        keyboardEnd();
-    },3000);
+    },2000);
 }
 
 //game over keyboard
 const keyboardEnd = () => {
     let keyboard = document.querySelector('.keyboard');
-    keyboard.classList.add('animate__animated', 'animate__backOutDown');
+    setTimeout(()=>{
+    keyboard.classList.add('animate__animated', 'animate__flipOutX');
+    },3000);
 }
 
 //replay button back in
 const replayButtonBackIn = () => {
-    let replayButton = document.querySelector('.replayButton');
-    
+    // again button
+    let winnerButton = document.querySelector('.replayButton');
+    setTimeout(() => {
+        winnerButton.style.visibility = 'visible';
+        winnerButton.classList.add('animate__animated', 'animate__flipInX');
+    }, 3500);
+
 }
 
 //correct answer 
