@@ -67,7 +67,6 @@ const addLetter = (character) => {
     animateTileBounce(tile);
   }
 
-  //console.log(word);
 };
 
 const removeLetter = () => {
@@ -78,7 +77,6 @@ const removeLetter = () => {
   tile.className = "tile";
 
   word = word.slice(0, -1);
-  //console.log(word);
 };
 
 //tile to update
@@ -173,7 +171,8 @@ replay.addEventListener('click', (event) => {
     // clicked on button?
     if (event.target.nodeName !== 'BUTTON') return
     
-    if(event.target.id=="rep"){
+    console.log(event.target.className)
+    if(event.target.className.includes("replayButton")){
         window.location.reload();
     }
 });
@@ -184,20 +183,17 @@ languageVersion.addEventListener('click', (event) => {
   if(event.target.className== "toggle-btn"){
     if(languageSwitch)
     {
-      console.log("nastavujem cestinu");
       allWords = allWordsCZ;
       languageSwitch = !languageSwitch;
     }
     else
     {
-      console.log("nastavujem slovencinu");
       allWords = allWordsSK;
       languageSwitch = !languageSwitch;
     }
   }
 
   if(event.target.nodeName == "BUTTON"){
-    console.log("start");
     playGame();
   }
 
