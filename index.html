@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="./CSS/board.css">
     <link rel="stylesheet" href="./CSS/effects.css">
     <link rel="stylesheet" href="./CSS/keyboard.css">
+    <link rel="stylesheet" href="./CSS/language.css">
 
     <script defer src="./JS/slovak.js"></script>
+    <script defer src="./JS/czech.js"></script>
     <script defer src="./JS/animations.js"></script>
     <script defer src="./JS/app.js"></script>
 
@@ -21,6 +23,17 @@
         <h1>SLOVKA</h1>
         <small>Píš pokojne bez diakritiky</small>
     </header>
+    <section class="languageVersion">
+        <h1>Jazyk</h1>
+        <div class="switch">
+            <label class="toggle flag">
+                <input type="checkbox" class="toggle-checkbox">
+                <div class="toggle-btn"></div>
+            </label>
+        </div>
+        <button class="playButton">Play</button>
+    </section>
+    
     <main class="board">
         <div class="row">
             <div data-index ="1" class="tile"></div>

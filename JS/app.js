@@ -1,10 +1,14 @@
+const devVersion = false;
+
 //Data
 const maxWordLenght = 5;
 const countOfTries = 6;
 
 let word = "";
 let tries = 1;
+let languageSwitch = true;
 
+let allWords = allWordsSK;
 
 let solution = allWords[allWords.length * Math.random() | 0].toLowerCase();
 let noAccentSolution = noAccents(solution);
@@ -31,12 +35,14 @@ document.addEventListener("keydown", (event) => {
 const submitWord = () => {
   if (word.length != maxWordLenght) return;
 
+  if(!devVersion)
+  {
   //is this a real world?
   if (!noAccentWords.includes(noAccents(word))) {
     animeRowShake(currentRow());
     return;
   }
-
+  }
   findLettersInRow();
   //console.dir(lettersInRow);
 
@@ -112,7 +118,7 @@ const findLettersInRow = () => {
     letter = noAccents(letter);
 
     // letter in correct place
-    if (noAccentSolution.charAt(index) === letter) {
+    if (noAccentSolution.charAt(index) == letter) {
       correct.push(letter);
     }
     // letter in wrong place
@@ -170,4 +176,29 @@ replay.addEventListener('click', (event) => {
     if(event.target.id=="rep"){
         window.location.reload();
     }
+});
+
+const languageVersion = document.querySelector('.languageVersion')
+languageVersion.addEventListener('click', (event) => {
+  
+  if(event.target.className== "toggle-btn"){
+    if(languageSwitch)
+    {
+      console.log("nastavujem cestinu");
+      allWords = allWordsCZ;
+      languageSwitch = !languageSwitch;
+    }
+    else
+    {
+      console.log("nastavujem slovencinu");
+      allWords = allWordsSK;
+      languageSwitch = !languageSwitch;
+    }
+  }
+
+  if(event.target.nodeName == "BUTTON"){
+    console.log("start");
+    playGame();
+  }
+
 });

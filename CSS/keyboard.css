@@ -1,3 +1,6 @@
+.keyboard{
+  visibility: hidden;
+}
 .keyboard .row,
 .replay {
 	display: flex;
@@ -16,7 +19,6 @@
 }
 
 .replay {
-	
 	position: fixed;
 	bottom: 7.5rem;
 	z-index: 10;
@@ -37,11 +39,16 @@
     background-color: #071409;
     justify-content: center;
     width: 20rem;
-    height: 5rem;
+    height: 6.8rem;
     
     margin-bottom: 30rem;
     position: absolute;
     touch-action: manipulation;
+
+    width: 10rem;
+    display: flex;
+    cursor: pointer;
+    z-index: 5;
 }
 
 .keyboard .tile {
@@ -95,17 +102,19 @@
   background: #071409;
 }
 
+/*
 .keyboard .large {
   width: 10rem;
   display: flex;
 }
+*/
 
 .keyboard .enter {
   font-size: 2rem;
 }
 
 /* KEYBOARD RESPONSIVE */
-@media only screen and (min-width: 600px) and (min-height: 900px) {
+@media only screen and (min-width: 600px) and (min-height: 700px) and (-webkit-min-device-pixel-ratio: 3) {
 
 	.keyboard .row  {
         margin-bottom: 2px;
@@ -120,7 +129,8 @@
 
 	}
   .replayButton{
-    width: 14rem;
+    width: 20rem;
+    height: 10rem;
   }
     .keyboard .double {
         width: 6rem;
@@ -130,5 +140,40 @@
         font-size: 1rem;
         width: 0.5rem;
     }
+
+}
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) 
+  and (orientation: portrait)
+  { 
+
+    .keyboard .row  {
+      margin-bottom: 2px;
+      gap: 2px;
+  }
+
+  .keyboard .tile {
+  font-size: 1.5rem;
+  width: 2.75rem;
+  height: 3.75rem;
+  justify-content: center;
+
+}
+.replayButton{
+  width: 20rem;
+  height: 10rem;
+}
+  .keyboard .double {
+      width: 6rem;
+  }
+
+  .keyboard .enter {
+      font-size: 1rem;
+      width: 0.5rem;
+  }
 
 }

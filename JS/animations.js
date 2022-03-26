@@ -96,10 +96,7 @@ const highlightLetters = (row) => {
     //ak psimena su aj spravne aj obsahuje zobraz len spravne
     //zobraz len jedno zlte pismeno
     if (noAccentSolution.includes(letter)) {
-      if (
-        !lettersInRow.correct.includes(letter) &&
-        !pressentLetters.includes(letter)
-      ) {
+      if (!lettersInRow.correct.includes(letter) && !pressentLetters.includes(letter)) {
         colorClass = "present";
         pressentLetters.push(letter);
       }
@@ -107,6 +104,7 @@ const highlightLetters = (row) => {
 
     if (noAccentSolution.charAt(index) == letter) {
       colorClass = "correct";
+      tile.innerHTML = solution.charAt(index);
     }
 
     tile.classList.add(colorClass);
@@ -123,3 +121,18 @@ const highlightLetters = (row) => {
     if (colorClass) tile.classList.add(colorClass);
   });
 };
+
+const playGame = () => {
+  let playSection = document.querySelector('.languageVersion');
+  playSection.classList.add('animate__animated', 'animate__zoomOutUp');
+
+  let board = document.querySelector('.board');
+  let keyboard = document.querySelector('.keyboard');
+  setTimeout(() => {
+      board.style.visibility = 'visible';
+      keyboard.style.visibility = 'visible'
+      board.classList.add('animate__animated', 'animate__fadeIn');
+      keyboard.classList.add('animate__animated', 'animate__fadeIn');
+  }, 1000);
+
+}
