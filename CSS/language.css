@@ -1,11 +1,11 @@
 .languageVersion{
     position: fixed;
-    margin-top: 10rem;
+    margin-top: 4rem;
     
 
     background-color: #071409;
     width: 14rem;
-    height: 15rem;
+    height: 14rem;
 
     border: 2px solid #263725;
     border-radius: 20px;
@@ -20,15 +20,15 @@
 .playButton {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    width: 6rem;
-    height: 3rem;
-    font-size: 25px;
+    width: 8rem;
+    height: 4rem;
+    font-size: 20px;
 
     color:  white;
 	font-weight: 900;
 
     border: 2px solid #263725;
-    border-radius: 6px;
+    border-radius: 15px;
 	
     background-color: #071409;
     justify-content: center;
@@ -91,4 +91,18 @@
 
 .flag .toggle-checkbox:checked + .toggle-btn::after {
     content: '🇨🇿';
+}
+
+@media only screen and (min-width: 600px) and (min-height: 600px){
+
+    .languageVersion{
+        margin-top: 13rem;
+        width: 14rem;
+        height: 16rem;
+    }
+    .playButton {
+        width: 8rem;
+        height: 5rem;
+        font-size: 25px;
+    }
 }
