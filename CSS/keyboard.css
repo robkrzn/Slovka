@@ -46,10 +46,18 @@
   background: #071409;
 }
 
+
+.replay .replayButton:hover,
+.replay .replayButton:active,
+.keyboard .enter:hover,
+.keyboard .enter:active,
+.keyboard .double:hover,
+.keyboard .double:active,
 .keyboard .tile:not(.present, .correct, .wrong, .double):hover,
 .keyboard .tile:not(.present, .correct, .wrong, .double):active {
-  background: #071409;
+  background: #263725;
 }
+
 
 .keyboard .tile.correct,
 .keyboard .tile.present,
@@ -61,12 +69,6 @@
   background: #071409;
 }
 
-/*
-.keyboard .large {
-  width: 10rem;
-  display: flex;
-}
-*/
 .replay {
 	position: fixed;
 	bottom: 7.5rem;
