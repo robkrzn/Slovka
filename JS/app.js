@@ -180,21 +180,32 @@ replay.addEventListener('click', (event) => {
 const languageVersion = document.querySelector('.languageVersion')
 languageVersion.addEventListener('click', (event) => {
   
-  if(event.target.className== "toggle-btn"){
+  if(event.target.className== "toggle-checkbox"){
     if(languageSwitch)
     {
       allWords = allWordsCZ;
       languageSwitch = !languageSwitch;
+
+      document.querySelector('.headerSmallFlag').textContent="~🇨🇿~";
+      document.querySelector('.headerSmall').textContent="Píš klidně bez diakritiky";
+      document.querySelector('.playButton').textContent="Spusti hru";
+      document.querySelector('.replayButton').textContent="Hrát znovu ";
     }
     else
     {
       allWords = allWordsSK;
       languageSwitch = !languageSwitch;
+
+      document.querySelector('.headerSmallFlag').textContent="~🇸🇰~";
+      document.querySelector('.headerSmall').textContent="Píš pokojne bez diakritiky";
+      document.querySelector('.playButton').textContent="Spustiť hru";
+      document.querySelector('.replayButton').textContent="Hrať znova";
     }
   }
 
   if(event.target.nodeName == "BUTTON"){
     playGame();
   }
+  console.log(event.target.className);
 
 });
